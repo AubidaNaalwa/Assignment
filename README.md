@@ -1,6 +1,6 @@
 # Login Form
 
-#### Assignment for SightBit.
+#### Assignment for SightBit Company.
 
 A fullstack web LogIn Form .
 
