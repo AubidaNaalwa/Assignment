@@ -29,14 +29,14 @@ function LogIn(props) {
                         <input type="text" placeholder="email address" vlaue={userName} onChange={(e) => setUserName(e.target.value)} />
                         <input type="password" placeholder="password" vlaue={password} onChange={(e) => setPassword(e.target.value)} />
                         <button onClick={signUp}>create</button>
-                        <p className="message">Already registered? <span onClick={() => setflag(!flag)}>Sign In</span></p>
+                        <p className="message">Already registered? <span className= "createAccount" onClick={() => setflag(!flag)}>Sign In</span></p>
                     </form>
                     :
                     <form className="login-form">
                         <input type="text" placeholder="username" vlaue={userName} onChange={(e) => setUserName(e.target.value)} />
                         <input type="password" placeholder="password" vlaue={password} onChange={(e) => setPassword(e.target.value)} />
                         <button onClick={logIn}>login</button>
-                        <p className="message">Not registered? <span onClick={() => setflag(!flag)} >Create an account</span></p>
+                        <p className="message">Not registered? <span className= "createAccount" onClick={() => setflag(!flag)} >Create an account</span></p>
                     </form>
                 }
             </div>

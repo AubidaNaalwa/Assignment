@@ -88,3 +88,14 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+
+
+.createAccount {
+  transition-duration: 0.4s;
+}
+
+.createAccount:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
