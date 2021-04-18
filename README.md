@@ -2,7 +2,7 @@
 
 #### Assignment for SightBit Company.
 
-A fullstack web LogIn Form .
+A fullstack web LogIn Form using MERN Stack.
 
 
 ### To run on localhost:
