@@ -3,10 +3,10 @@ import { observer, inject } from 'mobx-react'
 function Home(props) {
 
     return (
-        <div>
-           <h1>You are Signed In</h1>
+        <div className="Home">
+            <h1>{props.userStore.username } You are Signed In</h1>
             <button onClick={props.userStore.setLoggedOut}>LogOut</button>
-        </div>
+        </div >
     );
 }
 

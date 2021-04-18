@@ -4,11 +4,9 @@ var validator = require('validator');
 
 export default class UserStore {
     constructor() {
-        this.name = ""
         this.username = ""
         this.isLogged = false
         makeObservable(this, {
-            name: observable,
             username: observable,
             isLogged: observable,
             checkIfLoggedIn: action,
@@ -24,7 +22,7 @@ export default class UserStore {
         this.isLogged = localStorage.getItem('isLogged')
     }
 
-    setLoggedIn = (username) => {
+    setLoggedIn = (username, name) => {
         localStorage.setItem("username", username)
         localStorage.setItem("isLogged", true)
         this.username = username
