@@ -13,7 +13,7 @@ A fullstack web LogIn Form .
 npm install
 npm start
 ```
-2. open `http://localhost:3000in your browser.
+2. open `http://localhost:3000 in your browser.
 
 ### Tools and Libraries
 
