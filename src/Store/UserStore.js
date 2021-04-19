@@ -22,6 +22,7 @@ export default class UserStore {
         this.isLogged = localStorage.getItem('isLogged')
     }
 
+
     setLoggedIn = (username, name) => {
         localStorage.setItem("username", username)
         localStorage.setItem("isLogged", true)
@@ -36,11 +37,10 @@ export default class UserStore {
     }
 
     async logIn(username, password) {
+        if (!this.validateInformation({ name: 1, username, password })) {
+            return
+        }
         try {
-            if (!username || !password) {
-                alert("username or password is incorrect ")
-                return
-            }
             const response = await axios.post('/login', { username, password })
             if (response.data.err === 0) {
                 this.setLoggedIn(username)
@@ -53,15 +53,9 @@ export default class UserStore {
     }
 
     signUp = async (name, username, password) => {
-        if (!username || !password || !name) {
-            alert("missing Fields ")
+        if (!this.validateInformation({ name,username, password })) {
             return
         }
-        if (!validator.isEmail(username)) {
-            alert("invalid Email")
-            return
-        }
-
         try {
             const response = await axios.post('/signUp', { username, password, name })
             if (response.data.err === 0) {
@@ -73,6 +67,18 @@ export default class UserStore {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    validateInformation({ name, username, password }) {
+        if (!username || !password || !name) {
+            alert("missing Fields ")
+            return false
+        }
+        if (!validator.isEmail(username)) {
+            alert("invalid Email")
+            return false
+        }
+        return true
     }
 
 }
