@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
         }
         user.save()
     } catch (error) {
-        res.status(404).send(
+        res.status(200).send(
             { msg: error }
         )
     }
@@ -62,7 +62,7 @@ router.post('/signUp', async (req, res) => {
     try {
         const checkExistingUser = await Users.find({ username: req.body.username })
         if (checkExistingUser.length) {
-            res.status(303).send({ msg: "User Exist", error: 1 })
+            res.status(200).send({ msg: "User Exist, this Mail Is Already have an Account.", error: 1 })
             return
         }
 
@@ -71,7 +71,7 @@ router.post('/signUp', async (req, res) => {
         res.status(200).send({ err: 0, msg: "" })
 
     } catch (error) {
-        res.status(404).send(
+        res.status(200).send(
             { msg: error }
         )
     }
