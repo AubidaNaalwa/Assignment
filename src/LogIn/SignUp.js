@@ -18,6 +18,7 @@ function SignUp(props) {
 
     return (
         <form className="login-form">
+            
             <input type="text" placeholder="name" value={name} onChange={({ target }) => setName(target.value)} />
             <input type="text" placeholder="email address" vlaue={userName} onChange={(e) => setUserName(e.target.value)} />
             <input type="password" placeholder="password" vlaue={password} onChange={(e) => setPassword(e.target.value)} />
