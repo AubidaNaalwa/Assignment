@@ -1,4 +1,4 @@
-import { observable, action, makeObservable, computed } from 'mobx'
+import { observable, action, makeObservable } from 'mobx'
 import axios from 'axios'
 var validator = require('validator');
 
@@ -21,7 +21,6 @@ export default class UserStore {
         this.username = localStorage.getItem('username')
         this.isLogged = localStorage.getItem('isLogged')
     }
-
 
     setLoggedIn = (username, name) => {
         localStorage.setItem("username", username)

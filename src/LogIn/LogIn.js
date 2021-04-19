@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { observer, inject } from 'mobx-react'
+import SignUp from './SignUp'
 import './LogIn.css'
 function LogIn(props) {
     const [flag, setflag] = useState(0)
     const [userName, setUserName] = useState("")
-    const [name, setName] = useState("")
     const [password, setPassword] = useState('')
+
     let history = useHistory()
     const logIn = (event) => {
         event.preventDefault();
@@ -14,29 +15,23 @@ function LogIn(props) {
         history.push('/')
     }
 
-    const signUp = (event) => {
-        event.preventDefault();
-        props.userStore.signUp(name, userName, password)
-        history.push('/')
+    const changeFlag = () => {
+        setPassword('')
+        setUserName('')
+        setflag(!flag)
     }
-
+    
     return (
         <div className="login-page">
             <div className="form">
                 {flag ?
-                    <form className="login-form">
-                        <input type="text" placeholder="name" value={name} onChange={({ target }) => setName(target.value)} />
-                        <input type="text" placeholder="email address" vlaue={userName} onChange={(e) => setUserName(e.target.value)} />
-                        <input type="password" placeholder="password" vlaue={password} onChange={(e) => setPassword(e.target.value)} />
-                        <button onClick={signUp}>create</button>
-                        <p className="message">Already registered? <span className= "createAccount" onClick={() => setflag(!flag)}>Sign In</span></p>
-                    </form>
+                    <SignUp changeFlag={changeFlag} />
                     :
                     <form className="login-form">
                         <input type="text" placeholder="username" vlaue={userName} onChange={(e) => setUserName(e.target.value)} />
                         <input type="password" placeholder="password" vlaue={password} onChange={(e) => setPassword(e.target.value)} />
                         <button onClick={logIn}>login</button>
-                        <p className="message">Not registered? <span className= "createAccount" onClick={() => setflag(!flag)} >Create an account</span></p>
+                        <p className="message">Not registered? <span className="createAccount" onClick={() => setflag(!flag)} >Create an account</span></p>
                     </form>
                 }
             </div>
