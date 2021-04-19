@@ -30,6 +30,12 @@ router.post('/login', async (req, res) => {
         return
     try {
         const user = await Users.findOne({ username: req.body.username })
+        if(!user){
+            res.status(200).send(
+                { err: 2, msg: "UserName Not Exist" }
+            )
+            return
+        }
         if (user.logInAttepmts >= 5) {
             res.status(200).send(
                 { err: 2, msg: "your userName Is Banned due many logIn Attempts" }
