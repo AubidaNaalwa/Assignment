@@ -24,6 +24,6 @@ npm start
 
 
 ### Instructions
--you have a 5 failed Attempts to logIn, after that your Account will be Banned.
--you can SignIn with Existing Account.
--you can Sign Up with new Account.
+- you have a 5 failed Attempts to logIn, after that your Account will be Banned.
+- you can SignIn with Existing Account.
+- you can Sign Up with new Account.
